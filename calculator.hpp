@@ -1,6 +1,7 @@
 #pragma once
 
 #include <bits/stdc++.h>
+#include <limits>
 using namespace std;
 
 class Calculator{
@@ -15,22 +16,31 @@ class Calculator{
         int m_userSems = 0;
         int m_numCourses = 0;
         int m_totalCreditHrs = 0;
+
+        // for a single semester
         vector<float> m_grades;
         vector<int> m_credithrs;
+
+        // for all semesters
         vector<float> m_sgpas;
         vector<int> m_semHrs;
 
         // private methods
-        void clearScreen();
+        void addGrade(float grade, int hrs);
     public:
         Calculator() = default;
-
-        void calculateSGPA();
-        void calculateCGPA();
-
+        
         void displayLogo();
         void displayMenu();
-        void addGrade(float grade, int hrs);
+        bool exitProgram();
         
-        void setNumCourses(int courses);
+        float calculateSGPA();
+        float calculateCGPA();
+        
+        void displaySGPAs();
+        void displayCGPA();
+
+        void enterDetails();
+
+        ~Calculator() = default;
 };
