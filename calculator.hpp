@@ -4,6 +4,16 @@
 #include <limits>
 using namespace std;
 
+// method to clear console screen
+inline void clearScreen()
+{
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
 class Calculator{
     private:
         // constants

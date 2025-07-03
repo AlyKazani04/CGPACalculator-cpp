@@ -8,8 +8,6 @@
 #include "calculator.hpp"
 using namespace std;
 
-inline void clearScreen();
-
 int main(){
     
     Calculator calc;
@@ -34,18 +32,18 @@ int main(){
 
                 calc.enterDetails();
 
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 break; 
             case 2:
                 clearScreen();
 
-                calc.calculateCGPA();
+                calc.displayCGPA();
 
-                cout << "==========================================" << endl;
                 cout << '\n' << "Press any key to continue..." << endl;
-                if(_kbhit()) 
-                {
-                    _getch();
-                }
+
+                _getch();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
                 break; 
             case 3:
                 clearScreen();
@@ -55,45 +53,38 @@ int main(){
                 calc.displaySGPAs();
                 calc.displayCGPA();
 
-                cout << "==========================================" << endl;
                 cout << '\n' << "Press any key to continue..." << endl;
-                if(_kbhit()) 
-                {
-                    _getch();
-                }
+
+                _getch();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
                 break; 
             case 4:
                 
                 cout << "==========================================" << endl;
                 cout << '\n' << "Press any key to continue..." << endl;
-                if(_kbhit()) 
-                {
-                    _getch();
-                }
+
+                _getch();
+
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
                 break;
             case 0:
                 if(calc.exitProgram()) { return 0; }
+
                 break; 
             default:
+
                 cout << "Invalid choice, please try again." << endl;
                 cout << "==========================================" << endl;
                 cout << '\n' << "Press any key to continue..." << endl;
-                if(_kbhit()) 
-                {
-                    _getch(); // wait for user to press Enter
-                }
+
+                _getch();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
                 break;
         }
     }
 
     return 0;
-}
-
-void clearScreen()
-{
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
 }

@@ -30,16 +30,13 @@ void Calculator::displaySGPAs()
         return;
     }
 
-    cout << "==========================================" << endl;
     cout << "             Semester SGPAs              " << endl;
-    cout << "==========================================" << endl;
+    cout << endl;
 
-    for(int i = 0; i < m_sgpas.size(); i++)
+    for(int i = 0; i < m_sgpas.size(); i+=2)
     {
-        cout << '\t' << fixed << setprecision(2) << "Semester" << i + 1 << ": " << m_sgpas[i] << endl;
-
+        cout << fixed << setprecision(2) << "Semester " << i + 1 << ": " << m_sgpas[i] << "\tSemester " << i + 2 << ": " << m_sgpas[i+1] << endl;
     }
-
     cout << "==========================================" << endl;
 
     cout << "Total Credit Hours: " << m_totalCreditHrs << endl;
@@ -60,7 +57,6 @@ void Calculator::displayCGPA()
     cout << "                  CGPA                   " << endl;
     cout << "==========================================" << endl;
     cout << fixed << setprecision(2) << "CGPA: " << CGPA << endl;
-    cout << "==========================================" << endl;
 }
 
 bool Calculator::exitProgram()
@@ -73,7 +69,7 @@ bool Calculator::exitProgram()
 
         choice = tolower(choice);
 
-        if(choice != 'y' || choice != 'n')
+        if(choice != 'y' && choice != 'n')
         {
             cout << "Invalid choice. Please enter 'y' or 'n'." << endl;
         }
@@ -94,7 +90,6 @@ bool Calculator::exitProgram()
 }
 
 // logic functions
-
 
 float Calculator::calculateSGPA()
 {
@@ -142,8 +137,8 @@ float Calculator::calculateCGPA()
     
     if(!m_sgpas.empty())
     {
-        CGPA = totalSGPAs / m_maxSems;
-        cout << "CGPA: " << CGPA << endl;
+        CGPA = totalSGPAs / m_userSems;
+        // cout << "CGPA: " << CGPA << endl;
         return CGPA;
     }
     
@@ -158,6 +153,14 @@ void Calculator::enterDetails()
     int numCourses;
     bool fail = true;
     int sems = 0;
+
+    m_totalCreditHrs = 0;
+    m_sgpas.clear();
+    m_semHrs.clear();
+    m_grades.clear();
+    m_credithrs.clear();
+    m_userSems = 0;
+    m_numCourses = 0;
 
     displayLogo();
 
@@ -184,6 +187,8 @@ void Calculator::enterDetails()
     cout << "You will now enter the details for " << m_userSems << " semesters." << endl;
     for(int i = 0; i < m_userSems; i++)
     {
+        clearScreen();
+        
         cout << "==========================================" << endl;
         cout << "          Enter Semester " << i + 1 << " Details" << endl;
         cout << "==========================================" << endl;
@@ -246,7 +251,7 @@ void Calculator::enterDetails()
         
         if(calculateSGPA() > 0.f)
         {
-            cout << "Entered semester " << i + 1 << "details successfully." << endl;
+            cout << "Entered semester " << i + 1 << " details successfully." << endl;
         }        
     }
 }
