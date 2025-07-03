@@ -18,7 +18,6 @@ void Calculator::displayMenu()
     cout << "1. Enter CGPA Details" << endl;
     cout << "2. Calculate CGPA" << endl;
     cout << "3. Display Result" << endl;
-    cout << "4. Save Result to Text File" << endl;
     cout << "0. Exit" << endl;
 }
 
@@ -26,7 +25,7 @@ void Calculator::displaySGPAs()
 {
     if(m_sgpas.empty())
     {
-        cout << "No  SGPAs available. Please enter all details first." << endl;
+        cout << "No SGPAs available. Please enter all details first." << endl;
         return;
     }
 

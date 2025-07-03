@@ -58,16 +58,6 @@ int main(){
                 _getch();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-                break; 
-            case 4:
-                
-                cout << "==========================================" << endl;
-                cout << '\n' << "Press any key to continue..." << endl;
-
-                _getch();
-
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
                 break;
             case 0:
                 if(calc.exitProgram()) { return 0; }
