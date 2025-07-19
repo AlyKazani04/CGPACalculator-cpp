@@ -2,7 +2,7 @@
 
 
 ## Author: @AlyKazani04
--> Made this as a part of my C++ Programming internship at CodeAlpha.
+-> Made this as a part of my C++ Programming internship at CodeAlpha. (Yea, found out I got scammed. Fake ahh internship...)
 
 ![WhatsApp Image 2025-07-04 at 14 14 25_96fa91b1](https://github.com/user-attachments/assets/a6969010-4a5a-46de-9e52-511d6cfc678d)
 
